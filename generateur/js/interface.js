@@ -204,8 +204,10 @@ $("#creer").hide();
 			case "Examiner ce glossaire":
 				var fic = $("#glossaires").val();
 				
-				$.getJSON(fic, function(data){
-					
+				$.ajax({
+					url: fic,
+					type: 'GET',
+					success: function(data) {
 					if (data.app_name == undefined || data.app_name != "Glossaire de JCruX"){
         				jAlert("Echec : format inconnu ou incompatible avec les glossaires de JCruX !","Erreur de format");
         				return false;	
@@ -215,7 +217,14 @@ $("#creer").hide();
 					info += "</p>";
 					$("#infos_source_glossaire").html(info);
 					$("#importer_glossaire").show();
-				});
+				}
+			});
+				
+				
+				/*$.getJSON(fic, function(data){
+					
+					
+				});*/
 					
 				
 			break;
