@@ -202,15 +202,15 @@ $("#creer").hide();
 			
 			
 			case "Examiner ce glossaire":
-				var fic = document.getElementById("glossaires").files;
+				var fic = $("#glossaires").val();
 				
-				$.getJSON(fic[0].name, function(data){
+				$.getJSON(fic, function(data){
 					
 					if (data.app_name == undefined || data.app_name != "Glossaire de JCruX"){
         				jAlert("Echec : format inconnu ou incompatible avec les glossaires de JCruX !","Erreur de format");
         				return false;	
         			}
-					var info = "<p>Source de glossaire : " + fic[0].name + "<br />";
+					var info = "<p>Source de glossaire : " + fic + "<br />";
 					info += "Thème : " + data.theme_source;
 					info += "</p>";
 					$("#infos_source_glossaire").html(info);
@@ -221,9 +221,9 @@ $("#creer").hide();
 			break;
 			
 			case "Importer ce glossaire":
-				var fic = document.getElementById("glossaires").files;
+				var fic = $("#glossaires").val();
 				
-				$.getJSON(fic[0].name, function(data){
+				$.getJSON(fic, function(data){
 					
 					for (var i = 0;i < data.mots_source.length; i++){
 								crux.mots.push( data.mots_source[i] );
