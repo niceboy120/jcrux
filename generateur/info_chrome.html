@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Info sur Chrome -->
+    <meta charset="utf-8">
+    <meta name="author" content="Patrick CARDONA" />
+    <meta name="copyright" content="Patrick CARDONA" />
+    
+    <link type="text/css" rel="stylesheet" href="../grille/css/commun/commun.css" />
+    
+    <title>Info sur Chrome</title>
+  </head>   
+	<body>
+	<article>
+		<h1>CAS PARTICULIER : navigateur Chrome</h1>
+
+<p>En raison d'une restriction de sécurité (<em>Same Origin Policy</em>), le navigateur <em>Chrome</em>
+empêche le chargement des requêtes Ajax si l'URI commence par <code>file://</code>.</p>
+
+<p>Pour contourner cette restriction et travailler localement avec Chrome :</p>
+<hr />
+<h2>A) Avec un Mac</h2>
+<p>Lancez <em>Chrome</em> à partir d’un terminal :</p>
+<ol>
+	<li>Ouvrez un terminal : Utilitaires/Terminal.</li>
+	<li>Déplacez-vous dans le dossier de <code>Grille</code>. Par exemple, si <code>JcruX</code> est sur votre bureau :
+		<br /><code>cd Desktop/jcrux</code>
+	</li>
+	<li>Sélectionnez et copiez le code suivant (cmd + c) :
+		<br /><code>
+			open -a Google\ Chrome ./index.html --args --disable-web-security --allow-files-access-from-files
+		</code>	
+	</li>
+	<li>Collez ce code dans le terminal (cmd + v) et validez-le avec la touche &lt;Entrée&gt;.
+		<br />Le navigateur <em>Chrome</em> s'ouvre à la page d'accueil.	
+	</li>
+	<li>Cliquez sur le lien 'Générateur' du sommaire.</li>
+	
+</ol>
+<p>Etc.</p>
+<hr />
+<p>Vous pouvez aussi rendre exécutable le script chrome_open_mac comme ceci :<br />
+	<code>chmod +x chrome_open_mac.sh</code>
+</p>
+	
+<p>Et l’exécuter ainsi :<br />
+	<code>./chrome_open_mac.sh</code>
+</p>
+	
+<hr />
+<h2>B) Avec Windows</h2>
+<p>Ouvrez une invite de commandes CMD. La commande devrait ressembler à :<br />
+	<code>chrome.exe --disable-web-security --allow-files-access-from-files</code>
+</p>	
+<p>Les retours d'expérience sont bienvenus. Je n’ai pas de machine Windows sous la main.</p>
+<hr />
+<h2>C) Autres méthodes</h2>
+<p>Principe : simuler un serveur HTTP local.</p>
+<hr />
+<h3>C-1) Environnement Unix/Mac OS X/GNU/Linux.</h3>
+
+<p>Si vous disposez d'une installation du langage <em>Python</em> sur votre ordinateur,
+vous allez procéder ainsi :</p>
+
+<ol>
+	<li>Ouvrez un terminal et déplacez-vous dans le dossier <code>Gentimeline</code>.</li>
+	<li>Exécutez le code :
+		<br /><code>python -m SimpleHTTPServer</code>
+	</li>
+	<li>Dans le navigateur Chrome, saisissez l'URL :
+		<br /><code>http://localhost:8000/index.html</code>	
+	</li>
+</ol>
+<hr /> 
+<h3>C-2) Environnement Windows</h3>	
+	<p>Vous devez installer un mini-serveur HTTP.
+		<br />Cf. <a href="http://www.zmws.com/">http://www.zmws.com/</a></p>
+ 
+	</article>	
+		
+		
+	</body>
+</html>
+	

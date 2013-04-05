@@ -1,0 +1,11 @@
+
+{
+	"app_name":"Glossaire de JCruX",
+	"theme_source":"Exemple",
+	"mots_source":[
+		"UN","DEUX"
+	],
+	"defs_source":[
+		"def1","def2"
+	]
+}

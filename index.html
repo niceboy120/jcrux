@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+  <meta charset="utf-8" />
+
+  <title>JCruX</title>
+  <meta name="description" content="Générateur et exerciseur de grilles de mots croisés" />
+  <meta name="author" content="Patrick CARDONA" />
+  
+  <link rel="stylesheet" type="text/css" href="grille/css/jcrux.css" />
+  <link rel="stylesheet" type="text/css" href="grille/dialogues/jquery.alerts.css" />
+  <link rel="stylesheet" type="text/css" href="grille/css/commun/apropos.css" />
+  
+  <script src="grille/js/lib/commun/jquery-1.7.1.js"></script>
+  <script src="grille/dialogues/jquery.alerts.js"></script>
+  <script src="grille/js/commun/apropos.js"></script>
+  
+</head>
+
+<body>
+  <div>
+  	<div id="logo">
+  		<img src="grille/img/gencrux-mini.png" title="logo de JCruX" alt="Logo de JCruX" />
+  	</div>
+    
+    
+	
+    <div id="corps">
+    	<header><h2>Introduction</h2></header>
+      
+	<section>
+		<p><em>JCrux</em>, c'est un générateur (<em>Weaver</em>) et interpréteur (<em>Engine</em>) de grilles de mots 
+			croisés en HTML-CSS et JavaScript.
+			<br />Le but est de générer et d'exécuter des grilles formatives sans plugiciel (pas de <em>flash</em> 
+			ou de Java) dans un contexte indépendant de la plate-forme grâce à un navigateur Web.
+			<br />Il est possible de conserver un glossaire et de l'importer afin de générer une nouvelle grille.</p>
+			<p>J'ai adapté et mis en cohérence deux outils libres existants :</p>
+			<ul>
+				<li>Le générateur de grille <em>JavaScript CrossWord Weaver</em> abrégé en <code>JCW</code>, 
+					initialement créé par Michael Johnson.</li>
+				<li>L'exécuteur <em>JavaScript Crossword Engine</em> abrégé en <code>JCE</code>, créé par 
+					Pavel Simakov entre 2007 et 2010.</li>
+			</ul>
+			<p>J'ai ajouté le formulaire <code>genCruX</code> permettant de saisir ou éditer les données : 
+				mots et définitions 
+				du glossaire, informations éditoriales, et de les rendre compatibles avec <code>JCW</code> et 
+				<code>JCE</code>. 
+				<br />Voyez le lien à propos pour le détail du
+				code source et les licences afférentes.</p>
+			 
+
+	
+	</section>
+
+
+	<header><h2>Outils et exemples</h2></header>
+	<section>
+		<nav>
+			<ul>
+				<li>Exemple de grille : <a href="grille/grille.html">grille.html</a></li>
+				<li>Générateur de grille : <a href="generateur/genCruX.html">genCruX.html</a></li>
+			</ul>
+		</nav>
+	</section>
+	
+	
+    
+    </div>
+    
+    <div id="laterale">
+    	<header>
+      			<h2>Aide en ligne</h2>
+    	</header>
+    	<aside>
+    		<nav>
+      			<p><a href="https://code.google.com/p/jcrux/wiki/Introduction">Mode d'emploi en ligne</a></p>
+    		</nav>
+    	</aside>
+    	<header>
+      			<h2>Téléchargement</h2>
+    	</header>
+    	<aside>
+    		<nav>
+      			<p><a href="https://code.google.com/p/jcrux/downloads/list">Dernière version et code source</a></p>
+    		</nav>
+    	</aside>
+    	
+    </div>
+
+    
+  </div>
+  
+  <footer>
+		<p>
+			<a title="apropos" href="#">JCruX</a> 
+     	&copy; 2012 Copyright Patrick CARDONA - Information de 
+     <a target="_blank" href="grille/licence.html" rel="jslicense">Licence</a>
+		</p>
+     
+    </footer>
+</body>
+</html>

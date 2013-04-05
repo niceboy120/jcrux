@@ -1,0 +1,94 @@
+/* jmemor.css */
+
+/* ( c ) 2012 Patrick cardona */
+
+/* =================================================================== */
+/* LICENCE
+/* =================================================================== */
+/*
+@licstart  The following is the entire license notice for the 
+    CSS code in this page.
+
+Copyright (C) 2012  Patrick CARDONA - Reperage
+
+    The CSS code in this page is free software: you can
+    redistribute it and/or modify it under the terms of the GNU
+    General Public License (GNU GPL) as published by the Free Software
+    Foundation, either version 3 of the License, or (at your option)
+    any later version.  The code is distributed WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS
+    FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+    As additional permission under GNU GPL version 3 section 7, you
+    may distribute non-source (e.g., minimized or compacted) forms of
+    that code without the copy of the GNU GPL normally required by
+    section 4, provided you include this license notice and a URL
+    through which recipients can access the Corresponding Source.
+    
+@licend  The above is the entire license notice
+    for the CSS code in this page.    
+*/
+
+
+
+
+body {
+	font-family:Arial,Helvetica,'Sans Serif';
+	color:#369;
+	font-size:12pt;	
+}
+
+#logo {
+	text-align:center;
+}
+
+#corps{
+	float:left;
+	width:60%;
+}
+
+#laterale{
+	float:left;
+	width:40%;
+}
+
+header {
+	margin-left:2em;
+	background-color: #CCCCCC;
+	padding:0.3em;
+}
+
+section, aside {
+	margin-left: 3em;	
+}
+
+
+h1, h2 {
+	color:#336699;	
+}
+
+h1 {
+	text-align:center;
+	font-size:1.7em;	
+}
+
+h2 {
+	margin-left:2em;
+	font-size:1.5em;
+}
+
+h2 code {
+	font-size:1em;
+}
+
+code {
+	color:#990033;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,2 @@
+À chaque nouvelle version, créer archive grille.zip 
+dans le dossier ‘res’ après réduction des js et css.

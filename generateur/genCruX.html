@@ -1,0 +1,229 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Patrick CARDONA">
+    <title>Générateur de JCruX</title>
+    
+    <link rel="stylesheet" type="text/css" href="../grille/dialogues/jquery.alerts.css">
+    <link rel="stylesheet" type="text/css" href="../grille/css/commun/apropos.css" />
+    <link rel="stylesheet" type="text/css" href="css/lib/progress.css"/>
+    <link rel="stylesheet" type="text/css" href="css/gencrux.css">
+    
+    <script src="../grille/js/lib/commun/jquery-1.7.1.js"></script>
+    <script src="../grille/dialogues/jquery.alerts.js"></script>
+    <script src="../grille/js/commun/apropos.js"></script>
+    <script src="js/gencrux.js"></script>
+    <script src="js/lib/jcw.js"></script>
+    <script src="../grille/JCE/js/oySign.js"></script>
+    <script src="../grille/JCE/js/codage.js"></script>
+    <script src="js/lib/jquery-url.js"></script>
+    <script src="js/lib/jqueryprogressbar.js"></script>
+    <script src="js/lib/jszip.js"></script>
+    <script src="js/interface.js"></script>
+  
+  </head>
+  <body>
+    
+    <figure style="text-align: center">
+		<img title="logo" id="logo" src="img/gencrux.png" alt="Logo générateur de JCruX" />
+	</figure>  	
+	<h1 id="titre" style="text-align: center">Le Générateur de grilles de mots croisés</h1>
+    
+
+    
+    
+	<noscript>
+	<h1>Erreur !</h1>
+	<p>Votre navigateur ne prend pas en charge l'exécution de scripts. Veuillez autoriser l'exécution de JavaScript ou employer un navigateur adapté.</p>
+	</noscript>
+	
+	
+	
+<!-- Etape 1 -->    
+   <div id="etape1">
+    <h2 id="titre1">Étape 1 : données éditoriales</h2>
+    	
+    <form id="editoriales">
+    <!-- infos nécessaires -->
+    <fieldset>
+    <legend>Informations nécessaires : </legend>
+    
+    <table width="80%">
+    <tr>
+    <td width="20%"><label for="edito_1">Auteur :</label></td>
+    <td><input type="text" id="edito_1" name="auteur" /></td>
+    </tr>
+    <tr>
+    <td><label for="edito_2">Thème de la grille :</label></td> 
+    <td><input type="text" id="edito_2" name="theme" /></td>
+    </tr>
+    </table>
+    
+    </fieldset>
+    
+    <input type="submit" value="Enregistrer les données éditoriales" id="action_edito" />
+    </form>
+   
+   </div>
+
+
+<!-- Etape 2 -->    
+  	<div id="etape2">  
+    
+    <h2 id="titre2">Étape 2 : saisir les mots &amp; les définitions</h2>
+    
+    <p>Les mots saisis seront convertis en capitales sans accents afin de garantir une compatibilité optimale avec les environnements des utilisateurs de la grille. En effet, la saisie de capitales accentuées peut s'avérer complexe dans certains environnements.</p>
+    <form>
+    <fieldset>
+    	<legend>Nouveau mot : </legend>
+    
+	    <table width="80%">
+	    <tr>
+	    <td width="20%"><label for="mot_1">Mot :</label></td>
+	    <td><input type="text" name="mot" id="mot_1" value="" /></td>
+	    </tr>
+	    <tr>
+	    <td><label for="mot_2">Définition :</label></td> 
+	    <td><textarea cols="80" rows="6" name="indice" id="mot_2"></textarea></td>
+	    </tr>
+	    </table>
+    
+    	<input type="submit" id="ajouter" value="Ajouter ce mot au glossaire" />
+    </fieldset>
+    	
+    	
+    <fieldset>
+    	<legend>Glossaire actuel : </legend>
+    	<div id="mots_saisis">Aucun mot saisi.</div>
+    </fieldset>
+    </form>
+ 
+ <!-- On importe un glossaire ? -->   
+    <div id="importation_glossaire">
+    	<form>
+    		<fieldset>
+    			<legend>
+    				Glossaire à importer :&nbsp;
+    			</legend>
+    			<input type="file" id="glossaires" />
+    			
+    			<fieldset>
+    			<legend>
+    				Informations :&nbsp;
+    			</legend>
+    			<div id="infos_source_glossaire">&nbsp;</div>
+    		</fieldset>
+    			
+    			<input type="submit" id="examiner_glossaire" value="Examiner ce glossaire" />
+    			<input type="submit" id="importer_glossaire" value="Importer ce glossaire" />
+    		</fieldset>			
+    	</form>
+    </div>
+    
+
+    <form>
+    	<input type="submit" id="creer" value="Créer la grille" />
+    </form>
+    
+</div>    
+<!-- fin sauvergarde du glossaire -->
+
+ 
+
+<!-- Etape 3 -->    
+   <div id="etape3">
+    
+    <h2 id="titre3">Étape 3 : construction de la grille</h2>
+    
+    <form>
+    
+    <fieldset>
+    <label>Dimension de la grille : 
+    <select id="dimension">
+    	<option value="30">30</option>
+    	<option value="25">25</option>
+    	<option value="20" selected="selected">20</option>
+    	<option value="15">15</option>
+    	<option value="12">12</option>
+    	<option value="10">10</option>
+    </select>
+    </label>
+    </fieldset>
+    
+    <input type="submit" value="Revenir au glossaire" id="revenir" /> 
+    <input type="submit" value="Afficher une autre disposition" id="autre" />
+    </form>
+    <div id="schema">...</div>
+    <form>
+    	<input type="submit" value="Choisir cette disposition" id="choisir" />
+    </form>
+    
+    </div>
+    
+    
+   
+
+   
+  <!-- Etape 10 -->
+  <div id="etape10">
+    <h2 id="titre10">Données de la grille</h2>
+  
+	<!-- Archive Zip des données de l'exercice -->
+	
+		<!-- Barre de progression -->
+	   	<p id="label_barre">Génération du code :</p>
+	   	<div id="bloc_barre">
+	   		<div id="barre"></div>
+	   	</div>
+	   <!-- Lien du téléchargement des données de l'exercice -->
+		<div id="enregistrement">
+			<img src="img/zip.png" width="100px" align="left" alt="Paquet Zip" />
+			<div id="lien_code">&hellip;</div>	
+		</div>
+	
+
+<!-- Obtenir une copie de l'Exerciseur --> 
+<div id="exerciseur">
+    <h2 id="titre11">Interpréteur de la grille</h2>
+    <p>Et maintenant ? Pour utiliser votre fichier de données :
+    	<ol>
+    		<li>Décompressez votre archive de données <code><em>nom_archive</em>.zip</code>&nbsp;. Elle contient trois 
+    			fichiers&nbsp;:
+    			<ul>
+    				<li><code>glossaire_<span id="nom_fic"></span>.json</code>&nbsp;: contient le glossaire pour 
+    					une réédition ultérieure. Conservez-le sur votre ordinateur.</li>
+    				<li><code>data.js</code>&nbsp;: ce fichier de données permet d'initialiser la grille.</li>
+    				<li><code>LISEZMOI.txt</code>&nbsp;: qui rappelle ces instructions.</li>
+    			</ul>
+    		</li>
+    		<li>Obtenez une copie de l'interpréteur de grille <code>grille.zip</code> 
+    			en cliquant sur le bouton ci-dessous&nbsp;;</li>
+    		<li>Décompressez-la. Vous obtenez un dossier&nbsp;: <code>grille</code>&nbsp;;</li>
+    		<li>Déplacez-y le fichier <code>data.js</code>.</li>
+    		<li>Pour publier votre grille sur un serveur de cours, créez une nouvelle archive <code>.zip</code> 
+    			de votre dossier <code>grille</code> 
+    			et déposez-la sur votre serveur.</li>
+    		<li>Sur ce serveur, décompactez cette archive.</li>
+    		<li>Faites-un lien vers le fichier <code>grille.html</code>.</li>
+    		
+    	</ol>
+  		<!-- Obtenir une archive Zip de l'exerciseur -->
+	   
+	  <form>
+	  	<img src="img/zip.png" width="100px" align="left" alt="Paquet Zip" />
+	  	<input type="submit" id="exerciseur" value="Télécharger une copie de l'interpréteur de grille JCruX" />
+	  </form>
+	    
+</div>
+</div>
+   
+   
+   
+  
+  <!-- Pied de page -->
+  	<footer>
+     	<p>Le Générateur de <a title="apropos" href="#">JCruX</a> - &copy; 2012 Copyright Patrick CARDONA - <a target="_blank" href="../grille/licence.html" rel="jslicense">Licence</a> </p> 
+    </footer>
+  
+  </body>
+</html>

@@ -1,0 +1,183 @@
+/* gencrux.css 
+( c ) 2012 Patrick cardona
+Version : 1.2.0
+*/
+
+/* =================================================================== */
+/* LICENCE
+/* =================================================================== */
+/*
+@licstart  The following is the entire license notice for the 
+    CSS code in this page.
+
+Copyright (C) 2012  Patrick CARDONA - Reperage
+
+    The CSS code in this page is free software: you can
+    redistribute it and/or modify it under the terms of the GNU
+    General Public License (GNU GPL) as published by the Free Software
+    Foundation, either version 3 of the License, or (at your option)
+    any later version.  The code is distributed WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS
+    FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+    As additional permission under GNU GPL version 3 section 7, you
+    may distribute non-source (e.g., minimized or compacted) forms of
+    that code without the copy of the GNU GPL normally required by
+    section 4, provided you include this license notice and a URL
+    through which recipients can access the Corresponding Source.
+    
+@licend  The above is the entire license notice
+    for the CSS code in this page.    
+*/
+
+body {
+	font-family:Arial,Helvetica,'Sans Serif';
+	color:#369;
+	font-size:12pt;	
+}
+
+.cache {
+	display:none;	
+}
+
+/*
+ * Si id commence par 'etape'
+ */
+div[id^="etape"], div#sauver{
+	background-color:#6699CC; /* bleu gris */
+	padding:2em;
+	-moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    display:none;
+}
+
+h1 {
+	font-size:1.7em;
+	color:#336699;	
+}
+
+h2 {
+	color:#fff;	
+}
+
+h2 {
+	font-size:1.5em;
+}
+
+h2 code {
+	font-size:1em;
+}
+
+/*
+ * Si title commence par 'aide'
+ */
+a[title^="aide"]{
+	color:white;
+}
+
+code {
+	color:#990033;
+}
+
+input[type="text"]{
+	width:45%;	
+}
+
+input[type="submit"], a[title="donnees"]{
+	background-color:#336699;
+	padding:0.5%;
+	margin-top:0.5em;
+	color:#fff;
+	border:0px;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;	
+}
+
+input[type="submit"]:hover, a[title="donnees"]:hover{
+	background-color:#003366;
+}
+
+a[title="donnees"]{
+	text-decoration: none;
+	font-size: 0.8em;
+}
+
+#pied,#pied a{
+	font-size:0.6em;
+	text-align:center;
+	color:gray;	
+}
+
+.motdef {
+	background-color:#fff;
+	border:0px;	
+}
+
+.motdef thead{
+	background-color:#336699;
+}
+
+.motdef td {
+	padding-right:0.5em;
+	font-size: 1em;
+	border:0px;	
+}
+
+.gris  {
+	background-color: #dcdcdc; /* gris clair */
+}
+
+.motdef th {
+	padding:0.2em;
+	color:#fff;	
+}
+
+.motdef thead td {
+	color:#fff;	
+}
+
+.rouge {
+	font-family:Arial,Helvetica,'Sans serif';
+	font-weight:bold;
+	color:red;
+	text-align:center;
+}
+
+.schema {
+	border: solid #336699 1px;
+}
+
+.schema td {
+	width:0.8em;
+}
+
+.vide {
+	background-color:#6699CC;
+	border: solid #6699CC 1px;
+}
+
+.plein {
+	padding:0.2em;
+	text-align:center;
+	background-color:white;
+	color:#6699CC;
+	border: solid #336699 1px;
+}
+
+.fond_rouge {
+	background-color:red;	
+}
+
+.fond_rouge td {
+	color:white;
+}
+
+.motdef_sensible td:nth-child(4) {
+	cursor:pointer;
+}
+
+
