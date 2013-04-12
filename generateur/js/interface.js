@@ -426,7 +426,7 @@ $("#creer").hide();
 		
 			case "Télécharger une copie de l'interpréteur de grille JCruX":
 			
-    			window.location.href = "./res/grille.zip";
+    			window.location.href = "https://github.com/pcardona34/grille/archive/master.zip";
 			
 			break;
 				
