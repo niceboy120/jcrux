@@ -109,6 +109,7 @@ oCrux.prototype.tableau = function(){
 		tab = "<p>La liste est vide.</p>";
 		// Pas de grille possible :
 		$("#creer").hide();
+		$("#supprimer").hide();
 	}
 	return tab;
 }
@@ -260,7 +261,7 @@ monCode.prototype.prepareLien = function(){
 	var lien = "Cliquez sur le bouton ci-dessous pour télécharger les données de la grille.<br />";
 	
 	if($.browser.mozilla){
-		lien += "Veillez à supprimer l'extension <em>.part</em> à la fin du fichier.</p>";
+		lien += "Veillez à supprimer, le cas échéant, l'extension <em>.part</em> à la fin du fichier.</p>";
 	}
 	if(navigateur == "safari"){
 		lien += "Afin de renommer le fichier d'archive, baptisé 'inconnu' par Safari,<br />";
@@ -277,9 +278,9 @@ monCode.prototype.prepareLien = function(){
 	zip.file(this.fic_code + "/glossaire_" + this.fic_code +".json", this.glossaire);
 	zip.file(this.fic_code + "/data.js", this.code);
 	var info = "Conservez sur votre ordinateur le fichier de glossaire glossaire_"+ this.fic_code +".json.\n";
-	info += "Procurez-vous une copie de l'interpréteur de grille JCruX, 'grille.zip'. Décompressez cette archive.\n";
-	info += "Déplacez le fichier 'data.js' du présent dossier dans le dossier 'grille' de l'interpréteur.\n";
-	info += "Votre pouvez maintenant publier votre grille au moyen du dossier 'grille' mis à jour.";
+	info += "Procurez-vous une copie de l'interpréteur de grille JCruX, 'grille-master.zip'. Décompressez cette archive.\n";
+	info += "Déplacez le fichier 'data.js' du présent dossier dans le dossier 'grille-master' de l'interpréteur.\n";
+	info += "Votre pouvez maintenant publier votre grille au moyen du dossier 'grille-master' mis à jour.";
 	zip.file(this.fic_code + "/LISEZMOI.txt",info);
 	this.data += zip.generate();
 	

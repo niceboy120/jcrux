@@ -80,32 +80,6 @@ function update(){
 $("document").ready(function(){
 	
 	
-/*
- * Quel navigateur ? Prévenir un souci avec Chrome en mode éditeur :
- */
-
-if ( $.browser.webkit && !$.browser.opera && !$.browser.msie && !$.browser.mozilla ) {
-	var userAgent = navigator.userAgent.toLowerCase();
-	if ( userAgent.indexOf("chrome") === -1 ) { 
-		navigateur = "safari";
-	}
-	else{
-		navigateur = "chrome";
-		var url = $.url();
-		var protocole = url.attr('protocol');
-		if (protocole == "file") {
-			var msg = "Pour utiliser le mode 'éditeur' avec Chrome en accès local,<br />";
-			msg += "c-à-d avec le protocole '" + protocole + "', veuillez consulter<br />";
-			msg += "les remarques du fichier <a target='_blank' href='info_chrome.html'>LISEZMOI CHROME</a>.";
-			$("#info_chrome").html(msg);
-			// On désactive le mode éditeur
-			//$("input[type=radio][name=choix_action][value=2]").attr("disabled",true);
-		}
-		
-	}
-}
-
-	
 	// On crée un objet de données oCrux :
 	var crux = new oCrux();
 	
@@ -114,7 +88,7 @@ if ( $.browser.webkit && !$.browser.opera && !$.browser.msie && !$.browser.mozil
 	 */
 	$("#auteur").change(function(){
 		if ( $("#auteur").val == "Patrick Cardona"){
-			$("#url_auteur").val("http://patrick.cardona.free.fr/");
+			$("#url_auteur").val("http://let-tice.blogspot.fr/");
 		}
 	});
 	
@@ -138,11 +112,10 @@ if ( $.browser.webkit && !$.browser.opera && !$.browser.msie && !$.browser.mozil
 // On masque le pied de page... pour l'afficher ensuite
 $("footer").hide()
 // On masque les boutons d'importation de glossaire, de création de grille...
-$("#examiner_glossaire").hide();
-$("#importer_glossaire").hide();
 $("#creer").hide();
+$("#supprimer").hide();
 	
-// Animation du logo initila : on le masque pour gagner de la place
+// Animation du logo initial : on le masque pour gagner de la place
 	$("#logo").animate(
 					{
 					width:0,
@@ -157,11 +130,6 @@ $("#creer").hide();
 				    			$("footer").fadeIn(4000);		
 					}
 	});   		
-
-// Gestionnaire d'importation de glossaire :
-	$("#glossaires").change(function(){
-		$("#examiner_glossaire").show();
-	});
 
 // Gestionnaire des actions : si on clique sur un bouton Submit...
 	$("input:submit").click(function(e){
@@ -201,31 +169,17 @@ $("#creer").hide();
 			break; // Fin "Enregistrer les données éditoriales"
 			
 			
-			case "Examiner ce glossaire":
-				var fic = $("#glossaires").val();
-				
-				$.getJSON(fic, function(data){
-				if (data.app_name == undefined || data.app_name != "Glossaire de JCruX"){
+			case "Importer ce glossaire":
+				var code = $("#code_glossaire").val();
+				if(	code == "" ){ jAlert("Veuillez coller le texte d'un glossaire dans la zone d'importation."); return false}
+				try{
+					var data = $.parseJSON(code);
+					if (data.app_name == undefined || data.app_name != "Glossaire de JCruX"){
         				jAlert("Echec : format inconnu ou incompatible avec les glossaires de JCruX !","Erreur de format");
         				return false;	
-        			}
-					var info = "<p>Source de glossaire : " + fic + "<br />";
-					info += "Thème : " + data.theme_source;
-					info += "</p>";
-					$("#infos_source_glossaire").html(info);
-					$("#importer_glossaire").show();	
-					
-				});
-					
-				
-			break;
-			
-			case "Importer ce glossaire":
-				var fic = $("#glossaires").val();
-				
-				$.getJSON(fic, function(data){
-					
-					for (var i = 0;i < data.mots_source.length; i++){
+        			}else{
+							/* Code conforme : on peut importer */
+							for (var i = 0;i < data.mots_source.length; i++){
 								crux.mots.push( data.mots_source[i] );
 								crux.indices.push( data.defs_source[i] );
 							}
@@ -235,7 +189,7 @@ $("#creer").hide();
 							// On rend le tableau visible :
 							$("#mots_saisis").show();
 							// On masque les colonnes : 1 & 4
-							$("td:nth-child(1),th:nth-child(1)").hide();
+							/*$("td:nth-child(1),th:nth-child(1)").hide();*/
 							$("td:nth-child(4),th:nth-child(4)").hide();
 							// On colore les lignes paires...
 							$(".motdef tr:nth-child(even)").addClass("gris");
@@ -244,16 +198,16 @@ $("#creer").hide();
 							if ( crux.mots.length > 0){
 								$("#sauver").show();
 							}
-							$("#infos_source_glossaire").html("&nbsp;");
-							$("#glossaires").val("");
-							$("#importer_glossaire").hide();
-							$("#examiner_glossaire").hide();	
-				});
-        							
-        				
-					
 						
+							$("#code_glossaire").val("");
+							
+								
 				
+					}
+					}
+				catch(e){
+					jAlert("Echec de l'importation. Veuillez coller un code de glossaire conforme. Erreur : "+e.message);
+					}		
 				
 			break;
 			
@@ -291,7 +245,7 @@ $("#creer").hide();
 					// Et idem pour la bouton "supprimer" :
 					$("#supprimer").show();
 					// On masque colonnes 1 & 4
-					$("td:nth-child(1),th:nth-child(1)").hide();
+					/*$("td:nth-child(1),th:nth-child(1)").hide();*/
 					$("td:nth-child(4),th:nth-child(4)").hide();	
 					
 					
@@ -305,7 +259,7 @@ $("#creer").hide();
 			
 			case "Supprimer un mot":
 				// On montre colonnes 1 & 4 : # et action
-				$("td:nth-child(1),th:nth-child(1)").show();
+				/*$("td:nth-child(1),th:nth-child(1)").show();*/
 				$("td:nth-child(4),th:nth-child(4)").show();
 				
 				$(".motdef").addClass("motdef_sensible");
@@ -327,7 +281,7 @@ $("#creer").hide();
         			if (crux.mots.length > 0){
 								$("#supprimer").show();
 								// On masque colonnes 1 et 4
-								$("td:nth-child(1),th:nth-child(1)").hide();
+								/* $("td:nth-child(1),th:nth-child(1)").hide(); */
 								$("td:nth-child(4),th:nth-child(4)").hide();
 								// On colore les lignes paires...
 								$(".motdef tr:nth-child(even)").addClass("gris");
@@ -339,7 +293,7 @@ $("#creer").hide();
         				$(".motdef_sensible").removeClass("motdef_sensible");
         				$("#supprimer").show();
         				// On masque colonnes 1 & 4
-						$("td:nth-child(1),th:nth-child(1)").hide();
+						/* $("td:nth-child(1),th:nth-child(1)").hide(); */
 						$("td:nth-child(4),th:nth-child(4)").hide();
 						// On colore les lignes paires...
 						$(".motdef tr:nth-child(even)").addClass("gris");	
