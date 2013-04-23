@@ -1,0 +1,18 @@
+{
+    "version": "1.4.0",
+    "name": "JCruX",
+    "description": "Générateur de grilles de mots croisés (Crossword Weaver)",
+    "developer": {
+        "name": "Patrick Cardona",
+        "url": "https://github.com/pcardona34/jcrux"
+    },
+    "launch_path":"/jcrux",
+    "installs_allowed_from": [
+        "*"
+    ],
+    "icons": {
+        "128": "/jdicto/icon_128.png"
+    }
+}
+
+
