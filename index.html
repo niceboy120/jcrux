@@ -7,16 +7,16 @@
   <meta name="description" content="Générateur de grilles de mots croisés" />
   <meta name="author" content="Patrick CARDONA" />
   
-  <link rel="stylesheet" type="text/css" href="grille/css/jcrux.css" />
-  <link rel="stylesheet" type="text/css" href="grille/dialogues/jquery.alerts.css" />
-  <link rel="stylesheet" type="text/css" href="grille/css/commun/apropos.css" />
+  <link rel="stylesheet" type="text/css" href="lib/css/jcrux.css" />
+  <link rel="stylesheet" type="text/css" href="lib/dialogues/jquery.alerts.css" />
+  <link rel="stylesheet" type="text/css" href="lib/css/apropos.css" />
     
 </head>
 
 <body>
   <div>
   	<div id="logo">
-  		<img src="grille/img/gencrux-mini.png" title="logo de JCruX" alt="Logo de JCruX" />
+  		<img src="lib/img/gencrux-mini.png" title="logo de JCruX" alt="Logo de JCruX" />
   	</div>
     
     
@@ -25,24 +25,12 @@
     	<header><h2>Introduction</h2></header>
       
 	<section>
-		<p><em>JCrux</em>, c'est un générateur (<em>Weaver</em>) et interpréteur (<em>Engine</em>) de grilles de mots 
-			croisés en HTML-CSS et JavaScript.
-			<br />Le but est de générer et d'exécuter des grilles formatives sans plugiciel (pas de <em>flash</em> 
-			ou de Java) dans un contexte indépendant de la plate-forme grâce à un navigateur Web.
+		<p><em>JCrux</em>, c'est un générateur en ligne (<em>Weaver</em>) de grilles de mots croisés. On y saisit un glossaire, 
+		à partir duquel des dispositions de la grille sont proposées. Quand une disposition est choisie, celle-ci
+		est enregistrée dans un fichier qui sera interprété par un exerciseur (<em>Engine</em>) de grilles de mots 
+			croisés dans un navigateur.
 			<br />Il est possible de conserver un glossaire et de l'importer afin de générer une nouvelle grille.</p>
-			<p>J'ai adapté et mis en cohérence deux outils libres existants :</p>
-			<ul>
-				<li>Le générateur de grille <em>JavaScript CrossWord Weaver</em> abrégé en <code>JCW</code>, 
-					initialement créé par Michael Johnson.</li>
-				<li>L'exécuteur <em>JavaScript Crossword Engine</em> abrégé en <code>JCE</code>, créé par 
-					Pavel Simakov entre 2007 et 2010.</li>
-			</ul>
-			<p>J'ai ajouté le formulaire <code>genCruX</code> permettant de saisir ou éditer les données : 
-				mots et définitions 
-				du glossaire, informations éditoriales, et de les rendre compatibles avec <code>JCW</code> et 
-				<code>JCE</code>. 
-				<br />Voyez le lien à propos pour le détail du
-				code source et les licences afférentes.</p>
+			
 			 
 
 	
@@ -73,11 +61,26 @@
     		</nav>
     	</aside>
     	<header>
-      			<h2>Téléchargement</h2>
+      			<h2>Genèse du projet</h2>
     	</header>
     	<aside>
     		<nav>
-      			<p><a href="https://github.com/pcardona34/jcrux">Code source</a></p>
+      			<p>J'ai adapté et mis en cohérence deux outils libres existants :</p>
+			<ul>
+				<li>Le générateur de grille <em>JavaScript CrossWord Weaver</em> abrégé en <code>JCW</code>, 
+					initialement créé par Michael Johnson.</li>
+				<li>L'exécuteur <em>JavaScript Crossword Engine</em> abrégé en <code>JCE</code>, créé par 
+					Pavel Simakov entre 2007 et 2010.</li>
+			</ul>
+			<p>J'ai ajouté le formulaire <code>genCruX</code> permettant de saisir ou éditer les données : 
+				mots et définitions 
+				du glossaire, informations éditoriales, et de les rendre compatibles avec <code>JCW</code> et 
+				<code>JCE</code>. 
+				<br />Voyez le lien à propos pour le détail du
+				code source et les licences afférentes.</p>
+      			
+      			
+      			<p><a href="https://github.com/pcardona34/jcrux" target="_blank">Code source</a></p>
     		</nav>
     	</aside>
     	
@@ -87,8 +90,8 @@
   </div>
   
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="grille/dialogues/jquery.alerts.js"></script>
-  <script src="grille/js/commun/apropos.js"></script>
+  <script src="lib/dialogues/jquery.alerts.js"></script>
+  <script src="lib/js/commun/apropos.js"></script>
   <footer>
 		<p>
 			<a title="apropos" href="#">JCruX</a> 

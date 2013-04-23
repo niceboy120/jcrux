@@ -35,7 +35,8 @@ Copyright (C) 2012  Patrick CARDONA - Reperage
 body {
 	font-family:Arial,Helvetica,'Sans Serif';
 	color:#369;
-	font-size:12pt;	
+	font-size:12pt;
+	margin:2em;	
 }
 
 #logo {
