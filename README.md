@@ -1,4 +1,4 @@
 jcrux
 =====
 
-Crossword, générateur de grilles de mots croisés
+Générateur de grilles de mots croisés (Crossword Weaver)
